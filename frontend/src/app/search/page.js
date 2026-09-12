@@ -71,7 +71,8 @@ function SearchDashboard() {
     setRawResults(null);
 
     try {
-      const res = await fetch("/api/search", {
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || (window.location.hostname === "localhost" ? "http://127.0.0.1:8000" : "https://pricehack-api.onrender.com");
+      const res = await fetch(`${backendUrl}/api/search`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: searchQuery, limit: 40 }),
