@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Web Scraper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .card {
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Amazon Product Scraper</h1>
+        
+        <div class="card p-4">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="url" class="form-label">Amazon Product URL</label>
+                    <input type="url" class="form-control" id="url" name="url" placeholder="https://www.amazon.com/dp/..." required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Scrape Product</button>
+            </form>
+        </div>
+
+        {% if error %}
+        <div class="alert alert-danger mt-4" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        {% if product %}
+        <div class="card mt-4">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Product Details</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th style="width: 30%">Title</th>
+                            <td>{{ product.title or 'N/A' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td class="text-success fw-bold">{{ product.price or 'N/A' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Rating</th>
+                            <td>{{ product.rating or 'N/A' }} ⭐</td>
+                        </tr>
+                        <tr>
+                            <th>Reviews</th>
+                            <td>{{ product.review_count or 'N/A' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Availability</th>
+                            <td>{{ product.availability or 'N/A' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="{{ product.url }}" target="_blank" class="btn btn-outline-secondary btn-sm mt-2">View on Amazon</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
