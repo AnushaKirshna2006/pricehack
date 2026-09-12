@@ -3,9 +3,11 @@ import { NextResponse } from 'next/server';
 export async function POST(request) {
   try {
     const body = await request.json();
+    // Use API_URL from environment, fallback to localhost for local development
+    const backendUrl = process.env.API_URL || 'http://127.0.0.1:8000';
     
-    // Explicitly proxy the request to the local Python backend
-    const res = await fetch('http://127.0.0.1:8000/api/search', {
+    // Explicitly proxy the request to the Python backend
+    const res = await fetch(`${backendUrl}/api/search`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
