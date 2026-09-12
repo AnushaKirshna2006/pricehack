@@ -213,7 +213,7 @@ function SearchDashboard() {
       </div>
 
       {/* 1. LEFT SIDEBAR */}
-      <aside className="relative z-20 w-full lg:w-[280px] xl:w-[320px] flex-shrink-0 flex flex-col border-r border-white/10 bg-white/[0.02] backdrop-blur-[40px] shadow-[0_0_40px_rgba(0,0,0,0.5)] h-screen overflow-y-auto custom-scrollbar p-8">
+      <aside className="relative z-20 w-full lg:w-[280px] xl:w-[320px] flex-shrink-0 flex flex-col border-b lg:border-b-0 lg:border-r border-white/10 bg-white/[0.02] backdrop-blur-[40px] shadow-[0_0_40px_rgba(0,0,0,0.5)] h-auto lg:h-screen overflow-y-visible lg:overflow-y-auto custom-scrollbar p-6 lg:p-8">
         
         {/* Branding */}
         <div className="flex items-center justify-between mb-12">
@@ -265,7 +265,7 @@ function SearchDashboard() {
 
 
       {/* 2. CENTER COLUMN */}
-      <section className="relative z-10 flex-1 flex flex-col h-screen overflow-y-auto p-6 lg:px-12 lg:py-10 custom-scrollbar">
+      <section className="relative z-10 flex-1 flex flex-col h-auto lg:h-screen overflow-y-visible lg:overflow-y-auto p-6 lg:px-12 lg:py-10 custom-scrollbar min-h-screen">
         
         {/* TOP HEADER */}
         <header className="flex flex-col gap-8 mb-10 w-full max-w-4xl mx-auto">
@@ -338,7 +338,7 @@ function SearchDashboard() {
       </section>
 
       {/* 3. RIGHT SIDEBAR */}
-      <aside className="relative z-20 w-full lg:w-[280px] xl:w-[320px] flex-shrink-0 flex flex-col h-screen overflow-y-auto p-8 border-l border-white/10 bg-white/[0.02] backdrop-blur-[40px] shadow-[-20px_0_40px_rgba(0,0,0,0.3)] custom-scrollbar">
+      <aside className="relative z-20 w-full lg:w-[280px] xl:w-[320px] flex-shrink-0 flex flex-col h-auto lg:h-screen overflow-y-visible lg:overflow-y-auto p-6 lg:p-8 border-t lg:border-t-0 lg:border-l border-white/10 bg-white/[0.02] backdrop-blur-[40px] shadow-[-20px_0_40px_rgba(0,0,0,0.3)] custom-scrollbar">
         
         <div className="flex items-center justify-between mb-10 pb-6 border-b border-white/10">
           <div className="flex items-center gap-3">
